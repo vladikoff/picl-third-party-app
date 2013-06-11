@@ -2,11 +2,10 @@
 
 angular.module('piclThirdPartyApp')
   .controller('BookmarksCtrl', function ($scope, dropboxService) {
+    $scope.devices = [];
 
     dropboxService.getData('bookmarks', function(data) {
-      console.log('Tab Data');
-      console.log(data);
-      console.log(Object.keys(data));
+      $scope.devices = data;
+      $scope.$apply();
     });
-
   });

@@ -1,2 +1,10 @@
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+
+
+#progress {
+  width: 100%;
+  bottom: 5px;
+  position: absolute;
+  display: none;
+}

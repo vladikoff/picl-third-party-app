@@ -3,6 +3,8 @@
 angular.module('piclThirdPartyApp')
   .service('dropboxService', function ($rootScope) {
 
+    $rootScope.reqStack = 0;
+
     $rootScope.client = new Dropbox.Client({
       key: 'gBZIklF5PfA=|f3fms27tm69IELcc347Wmtex0IZ8k+n2y8Sy21+6Hg==',
       sandbox: true
@@ -13,7 +15,6 @@ angular.module('piclThirdPartyApp')
       receiverUrl: 'http://' + window.location.host + '/oauth_receiver.html'
     }));
 
-
     return {
       connectService: function(scope) {
         $rootScope.client.authenticate({interactive: false}, function() {
@@ -23,7 +24,6 @@ angular.module('piclThirdPartyApp')
             scope.$apply();
           }
         });
-
       },
       connected: function() {
         return $rootScope.client && $rootScope.client.isAuthenticated();
@@ -47,12 +47,20 @@ angular.module('piclThirdPartyApp')
       },
       getData: function(type, callback) {
         if (this.connected()) {
+          $("#progress").show();
+          $rootScope.reqStack++;
+
           $rootScope.client.readFile("." + type + ".json", function(error, data) {
             try {
               callback(JSON.parse(data));
             } catch(e) {
               console.log('fail')
               callback({});
+            }
+
+            $rootScope.reqStack--;
+            if ($rootScope.reqStack === 0) {
+              $("#progress").hide();
             }
           })
         } else {

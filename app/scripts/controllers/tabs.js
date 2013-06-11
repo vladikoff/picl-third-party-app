@@ -2,12 +2,18 @@
 
 angular.module('piclThirdPartyApp')
   .controller('TabsCtrl', function ($scope, dropboxService) {
-    console.log('tabs');
+    $scope.devices = [];
 
     dropboxService.getData('tabs', function(data) {
-      console.log('Tab Data');
-      console.log(data);
-      console.log(Object.keys(data));
+      $scope.devices = data;
+      $scope.$apply();
     });
 
+  });
+
+angular.module('piclThirdPartyApp').
+  filter('fromNow', function() {
+    return function(dateString) {
+      return moment(new Date(dateString)).fromNow()
+    };
   });
