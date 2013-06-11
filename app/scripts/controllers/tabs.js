@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('piclThirdPartyApp')
-  .controller('TabsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('TabsCtrl', function ($scope, dropboxService) {
+    console.log('tabs');
 
+    dropboxService.getData('tabs', function(data) {
+      console.log('Tab Data');
+      console.log(data);
+      console.log(Object.keys(data));
+    });
 
   });
