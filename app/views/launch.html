@@ -1,0 +1,12 @@
+<ul>
+  <li ng-repeat="device in devices">
+    <h3>{{device.name | deviceName}}</h3>
+    <div class="grid-icon">
+      <div class="grid-block" ng-repeat="l in device.favicons">
+        <object data="">
+          <a href="{{l.url | urlToLink}}"><img src="{{l.url}}" alt="N/A" /></a>
+        </object>
+      </div>
+    </div>
+  </li>
+</ul>

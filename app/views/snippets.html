@@ -1,0 +1,13 @@
+<h2>My Snippets</h2>
+<input type="text" ng-model="search" class="search-query" placeholder="Search">
+<ul>
+  <li ng-repeat="device in devices">
+    <h3>{{device.name | deviceName}}</h3>
+    <ul>
+      <li ng-repeat="s in device.snippets | filter:search | orderBy:'visit'">
+        {{s.name}}<br/>
+        <span class="muted">{{s.visit | fromNow }}</span>
+      </li>
+    </ul>
+  </li>
+</ul>

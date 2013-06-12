@@ -6,9 +6,11 @@ angular.module('piclThirdPartyApp', [])
     $locationProvider.html5Mode(true);
 
     $routeProvider
+      /*
       .when('/', {
         redirectTo: '/tabs'
       })
+      */
       .when('/tabs', {
         templateUrl: 'views/tabs.html',
         controller: 'TabsCtrl'
@@ -21,11 +23,28 @@ angular.module('piclThirdPartyApp', [])
         templateUrl: 'views/bookmarks.html',
         controller: 'BookmarksCtrl'
       })
+      .when('/snippets', {
+        templateUrl: 'views/snippets.html',
+        controller: 'SnippetsCtrl'
+      })
       .when('/addons', {
         templateUrl: 'views/addons.html',
         controller: 'AddonsCtrl'
+      })
+      .when('/', {
+        templateUrl: 'views/launch.html',
+        controller: 'LaunchCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+
+angular.module('piclThirdPartyApp').
+  filter('deviceName', function() {
+    return function(deviceName) {
+      return deviceName.split('-')[0] + ' Device';
+    };
+  });
+

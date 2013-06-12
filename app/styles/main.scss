@@ -80,3 +80,16 @@ body {
     }
   }
 }
+
+.grid-icon {
+  .grid-block {
+    float: left;
+  }
+  img {
+    padding: 10px;
+    border: 1px solid $grayLighter;
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+  }
+}

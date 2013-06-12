@@ -3,7 +3,7 @@
 angular.module('piclThirdPartyApp')
   .controller('NavCtrl', ['$scope', '$location', 'dropboxService', function ($scope, $location, dropboxService) {
     $scope.navClass = function (page) {
-      var currentRoute = $location.path().substring(1) || 'tabs';
+      var currentRoute = $location.path().substring(1) || '';
       return page === currentRoute ? 'active' : '';
     };
 
@@ -13,6 +13,9 @@ angular.module('piclThirdPartyApp')
       console.log("Value Changed: " + newValue + ' from ' + oldValue);
     });
 
+    $scope.refresh = function () {
+      window.location.reload();
+    };
 
     // TODO: might not be the best place for this
     dropboxService.connectService($scope);
