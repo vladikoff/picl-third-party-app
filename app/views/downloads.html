@@ -1,1 +1,32 @@
-<p>This is the downloads view.</p>
+<h1>My Downloads</h1>
+
+<input type="text" ng-model="search" class="search-query" placeholder="Search">
+<ul>
+  <li ng-repeat="device in devices">
+    <h3>{{device.name}}</h3>
+    <ul>
+      <li ng-repeat="dl in device.downloads | filter:search | orderBy:'name'">
+        <a href="{{dl.referrer}}">{{dl.name}}</a><br/>
+        <span class="muted">Download from:</span>
+        {{dl.maxBytes | calc}}
+        <div class="btn-group">
+          <a class="btn" href="{{dl.referrer}}">Source</a>
+          <a class="btn" href="#">Dropbox</a>
+        </div><br/>
+
+        <span class="muted">Saved in {{dl.target}}</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!--
+endTime: 1370998590024920
+maxBytes: 218882
+name: "sample.pdf"
+referrer: "URL"
+startTime: 1370998589941364
+state: 1
+target: "file:///Users/..../Downloads/sample.pdf"
+tempPath: ""
+-->
