@@ -1,10 +1,82 @@
 @import "compass_twitter_bootstrap";
-@import "compass_twitter_bootstrap_responsive";
+@import "compass/css3/box-sizing";
 
+$piclGray: #747476;
+
+body {
+  padding-top: 100px;
+}
+
+* {
+  @include box-sizing(border-box);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.btn-refresh {
+  color: #fff;
+  text-shadow: none;
+  background: $infoText;
+}
+
+.navbar .brand {
+  padding: 10px 5px 5px 5px;
+  margin: 0;
+}
+
+#pager-connect {
+  li {
+    display: block;
+  }
+  display: block;
+  margin: 5px 1%;
+  clear: both;
+  .previous {
+    margin-top: 5px;
+  }
+}
 
 #progress {
   width: 100%;
-  bottom: 5px;
+  bottom: 0;
+  left: 0;
   position: absolute;
   display: none;
+}
+
+#content {
+  overflow: hidden;
+  margin: 2%;
+  #{headings()} {
+    color: $piclGray;
+    padding: 1%;
+  }
+  .muted {
+    text-align: left;
+    display: block;
+  }
+  h2 {
+    background: #f5f5f5;
+    padding: 2% 1%;
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+  .search-query {
+    display: block;
+    padding: 1% 2%;
+    width: 90%;
+    margin: 10px auto;
+  }
+  ul {
+    margin: 0;
+    list-style-type:none;
+    li {
+      padding: 0;
+      li {
+        padding: 1% 0;
+        border-bottom: 1px solid $grayLighter;
+      }
+    }
+  }
 }

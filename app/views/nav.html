@@ -6,22 +6,21 @@
       <li ng-class="navClass('downloads')"><a href="/downloads">Downloads</a></li>
       <li ng-class="navClass('bookmarks')"><a href="/bookmarks">Bookmarks</a></li>
       <li ng-class="navClass('addons')"><a href="/addons">Addons</a></li>
+      <li ng-class="navClass('launch')"><a href="/launch">Launch</a></li>
     </ul>
-  </div>
-</div>
 
-<ul class="pager" style="margin: 20px 0;">
-  <li class="previous" ng-switch on="loggedIn">
+  <ul class="pager" id="pager-connect">
+    <li class="previous" ng-switch on="loggedIn">
       <a href="#" ng-switch-when="true"><span class="label label-info">Connected to Dropbox</span></a>
       <a href="#" ng-switch-when="false" ng-click="login()">Connect to Dropbox</a>
-  </li>
-  <li class="next">
-    <button class="btn btn-inverse pull-right">Refresh</button>
-  </li>
-</ul>
+    </li>
+    <li class="next">
+      <button class="btn btn-refresh pull-right">Refresh</button>
+    </li>
+  </ul>
 
-<hr class="divider" style="clear:both"/>
-
+  </div>
+</div>
 
 <div id="progress" class="progress progress-striped active" style="">
   <div class="bar" style="width: 100%;"></div>
