@@ -10,7 +10,7 @@ angular.module('piclThirdPartyApp')
       sandbox: true
     });
 
-    $rootScope.client.authDriver(new Dropbox.Drivers.Popup({
+    $rootScope.client.authDriver(new Dropbox.Drivers.Redirect({
       rememberUser: true,
       receiverUrl: 'http://' + window.location.host + '/oauth_receiver.html'
     }));
