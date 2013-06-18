@@ -1,26 +1,46 @@
 <div class="navbar">
-  <div class="navbar-inner" >
-    <a class="brand"  href="/">PiCL Third Party</a>
-    <ul class="nav">
-      <li ng-class="navClass('tabs')"><a href="/tabs">Tabs</a></li>
-      <li ng-class="navClass('downloads')"><a href="/downloads">Downloads</a></li>
-      <li ng-class="navClass('snippets')"><a href="/snippets">Snippets</a></li>
-      <li ng-class="navClass('bookmarks')"><a href="/bookmarks">Bookmarks</a></li>
-      <li ng-class="navClass('addons')"><a href="/addons">Addons</a></li>
-    </ul>
+  <div class="navbar-inner">
+    <div class="container">
 
-    <ul class="pager" id="pager-connect">
-      <li class="previous" ng-switch on="loggedIn">
-        <a href="#" ng-switch-when="true"><span class="label label-info">Connected to Dropbox</span></a>
-        <a href="#" ng-switch-when="false" ng-click="login()">Connect to Dropbox</a>
-      </li>
-      <li class="next">
-        <button class="btn btn-refresh pull-right" ng-click="refresh()">Refresh</button>
-      </li>
-    </ul>
+      <a class="brand"  href="/">PiCL</a>
 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+
+        <ul class="nav">
+          <li ng-class="navClass('tabs')"><a href="/tabs">Tabs</a></li>
+          <li ng-class="navClass('downloads')"><a href="/downloads">Downloads</a></li>
+          <li ng-class="navClass('snippets')"><a href="/snippets">Snippets</a></li>
+          <li ng-class="navClass('bookmarks')"><a href="/bookmarks">Bookmarks</a></li>
+          <li ng-class="navClass('addons')"><a href="/addons">Addons</a></li>
+        </ul>
+
+      </div>
+
+
+
+      <ul class="pager" id="pager-connect">
+        <li class="previous" ng-switch on="loggedIn">
+          <a href="#" ng-switch-when="true"><span class="label label-info">Connected to Dropbox</span></a>
+          <a href="#" ng-switch-when="false" ng-click="login()">Connect to Dropbox</a>
+        </li>
+        <li class="next">
+          <button class="btn btn-refresh pull-right" ng-click="refresh()">Refresh</button>
+        </li>
+      </ul>
+
+    </div>
   </div>
 </div>
+
 
 <div id="progress" class="progress progress-striped active" style="">
   <div class="bar" style="width: 100%;"></div>

@@ -48,3 +48,11 @@ angular.module('piclThirdPartyApp').
     };
   });
 
+/**
+ * Quick Hack to collapse the nav on navigate
+ */
+
+$('.navbar-inner a').on('click', function(){
+  $(".btn-navbar").click();
+});
+

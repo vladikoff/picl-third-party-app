@@ -15,10 +15,9 @@
 .pager li > a,
 .pager li > span {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 5px;
   background-color: #fff;
   border: 1px solid #ddd;
-  @include ctb-border-radius(15px);
 }
 .pager li > a:hover {
   text-decoration: none;
