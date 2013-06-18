@@ -67,8 +67,8 @@ $piclGray: #747476;
     display: block;
   }
   h2 {
-    background: #f5f5f5;
-    padding: 2% 1%;
+    border-bottom: 2px solid #f5f5f5;
+    padding: 2% 0 5px 0;
   }
 
   h3 {
@@ -108,4 +108,16 @@ $piclGray: #747476;
   }
 }
 
-@import "main-navbar";
+@media (max-width: $navbarCollapseWidth){
+  #content h2 {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    font-size: 14px;
+    top: 2px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    background: none;
+  }
+}
