@@ -69,13 +69,13 @@
     padding: 9px 15px;
     font-weight: bold;
     color: $navbarLinkColor;
-    @include ctb-border-radius(3px);
+    //@include ctb-border-radius(3px);
   }
   // Buttons
   .nav-collapse .btn {
     padding: 4px 10px 4px;
     font-weight: normal;
-    @include ctb-border-radius($baseBorderRadius);
+    //@include ctb-border-radius($baseBorderRadius);
   }
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;

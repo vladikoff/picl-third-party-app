@@ -4,20 +4,24 @@
 
 $piclGray: #747476;
 
-
 * {
   //@include box-sizing(border-box);
   font-family: Helvetica, Arial, sans-serif;
 }
 
 .navbar {
-  margin-bottom: 0;
- .btn-refresh {
+  margin-bottom: 0px;
+  .btn-refresh {
     margin: 0;
     color: #fff;
+    border-radius: 0;
     text-shadow: none;
     background: $infoText;
- }
+  }
+  .btn-menu {
+    border-radius: 0;
+    margin-right: 12px;
+  }
 }
 
 .navbar .btn-navbar, .brand {
@@ -26,7 +30,7 @@ $piclGray: #747476;
 }
 
 .navbar .brand {
-  padding: 10px 5px 5px 5px;
+  padding: 10px 5px 5px 15px;
   margin: 0;
 }
 
@@ -35,7 +39,7 @@ $piclGray: #747476;
     display: block;
   }
   display: block;
-  margin: 5px 1%;
+  margin: 7px 10px;
   clear: both;
   .previous {
     margin-top: 5px;
@@ -44,12 +48,11 @@ $piclGray: #747476;
 
 #progress {
   width: 100%;
-  bottom: 0;
+  bottom: -20px;
   left: 0;
   position: absolute;
   display: none;
 }
-
 
 #content {
   z-index: 1;
@@ -81,7 +84,7 @@ $piclGray: #747476;
   }
   ul {
     margin: 0;
-    list-style-type:none;
+    list-style-type: none;
     li {
       padding: 0;
       li {
@@ -104,6 +107,5 @@ $piclGray: #747476;
     margin: 10px;
   }
 }
-
 
 @import "main-navbar";
