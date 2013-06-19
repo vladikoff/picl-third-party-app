@@ -87,10 +87,6 @@ $piclGray: #747476;
     list-style-type: none;
     li {
       padding: 0;
-      li {
-        padding: 1% 0;
-        border-bottom: 1px solid $grayLighter;
-      }
     }
   }
 }
@@ -119,5 +115,35 @@ $piclGray: #747476;
     width: 100%;
     left: 0;
     background: none;
+    border: none;
+  }
+  .contentList {
+    .title {
+      display: inline-block;
+      max-width: 275px;
+    }
+  }
+}
+
+.contentList {
+  a {
+    padding: 1% 0;
+    border-bottom: 1px solid $grayLighter;
+    display: block;
+    min-height: 60px;
+    &:hover {
+      text-decoration: none;
+      background: #fcfcff;
+    }
+  }
+  li ul li {
+    position: relative;
+    overflow: hidden;
+  }
+  img {
+    position: absolute;
+    right: 0;
+    height: 60px;
+    top: 2px;
   }
 }

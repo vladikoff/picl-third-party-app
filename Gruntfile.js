@@ -7,6 +7,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  grunt.loadNpmTasks('grunt-firefoxos');
 
   var modRewrite = require('connect-modrewrite');
 
@@ -23,6 +24,12 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
+    fxos: {
+      options: {
+        app: 'app',
+        icon: 'icon.png'
+      }
+    },
     watch: {
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -198,6 +205,7 @@ module.exports = function (grunt) {
         }
       }
     },
+
     htmlmin: {
       dist: {
         options: {
