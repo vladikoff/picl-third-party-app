@@ -90,7 +90,7 @@
 .dropdown-submenu:hover > a {
   text-decoration: none;
   color: $dropdownLinkColorHover;
-  @include ctb-gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
+  //@include ctb-gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
 }
 
 // Active state
@@ -100,7 +100,7 @@
   color: $dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
-  @include ctb-gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
+  //@include ctb-gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
 }
 
 // Disabled state
@@ -115,7 +115,7 @@
   text-decoration: none;
   background-color: transparent;
   background-image: none; // Remove CSS gradient
-  @include ctb-gradient-reset-filter();
+  //@include ctb-gradient-reset-filter();
   cursor: default;
 }
 

@@ -126,8 +126,8 @@ $piclGray: #747476;
   }
 }
 
-.contentList {
-  a {
+#content .contentList {
+  a, .contentItem {
     padding: 1% 0;
     border-bottom: 1px solid $grayLighter;
     display: block;
@@ -136,6 +136,11 @@ $piclGray: #747476;
       text-decoration: none;
       background: #fcfcff;
     }
+  }
+  .contentItemSnippets {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: auto;
   }
   li ul li {
     position: relative;

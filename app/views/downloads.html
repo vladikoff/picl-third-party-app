@@ -1,11 +1,12 @@
 <h2>Downloads</h2>
 <input type="text" ng-model="search" class="search-query" placeholder="Search">
-<ul>
+<ul class='contentList'>
   <li ng-repeat="device in devices">
     <h3>{{device.name | deviceName}}</h3>
     <ul>
-      <li ng-repeat="dl in device.downloads | filter:search | orderBy:'name'">
-        <a href="{{dl.referrer}}">{{dl.name}}</a><br/>
+      <li class='contentItem' ng-repeat="dl in device.downloads | filter:search | orderBy:'name'">
+        {{dl.name}}<br/>
+        <span class="muted">Downloaded: {{ dl.endTime | fromNowDownload }}</span>
         <span class="muted">Download from:</span>
         {{dl.maxBytes | calc}}
         <div class="btn-group">

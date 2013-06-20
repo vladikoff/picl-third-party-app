@@ -24,6 +24,10 @@ angular.module('piclThirdPartyApp')
       dropboxService.login($scope);
     };
 
+    var logout = function () {
+      dropboxService.logout();
+    };
+
 
     var addGlass = function () {
       var creds = dropboxService.client().credentials();
@@ -32,5 +36,6 @@ angular.module('piclThirdPartyApp')
     };
 
     $scope.login = login;
+    $scope.logout = logout;
     $scope.addGlass = addGlass;
   }]);

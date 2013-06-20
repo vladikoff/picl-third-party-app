@@ -1,13 +1,20 @@
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
+var lrSnippet;
+
+try {
+  lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+} catch (e) {
+
+}
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
 module.exports = function (grunt) {
   // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.loadNpmTasks('grunt-firefoxos');
+  require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks);
+  //grunt.loadNpmTasks('grunt-firefoxos');
 
   var modRewrite = require('connect-modrewrite');
 
