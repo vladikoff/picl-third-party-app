@@ -25,6 +25,9 @@ angular.module('piclThirdPartyApp')
           }
         });
       },
+      client: function() {
+        return $rootScope.client
+      },
       connected: function() {
         return $rootScope.client && $rootScope.client.isAuthenticated();
       },

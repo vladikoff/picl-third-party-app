@@ -46,7 +46,7 @@ app.configure(function () {
 /**
  * Server configuration
  */
-var port = process.env.PORT || 7891;
+var port = process.env.PORT || 9000;
 app.listen(port);
 console.log('Starting a server on port: ' + port);
 
@@ -54,10 +54,11 @@ console.log('Starting a server on port: ' + port);
  * express app router
  */
 app.get('/', function (req, res, next) {
-  res.sendfile("dist/index.html");
+  res.sendfile('dist/index.html');
 });
+
 
 // final route, if nothing else matched, this will match docs
 app.get('*', function (req, res, next) {
-  res.sendfile("dist/index.html");
+  res.sendfile('dist/index.html');
 });
