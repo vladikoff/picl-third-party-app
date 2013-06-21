@@ -5,10 +5,10 @@
     <h3>{{device.name | deviceName}}</h3>
     <ul>
       <li class='contentItem' ng-repeat="dl in device.downloads | filter:search | orderBy:'name'">
-        {{dl.name}}<br/>
-        <span class="muted">Downloaded: {{ dl.endTime | fromNowDownload }}</span>
-        <span class="muted">Download from:</span>
-        {{dl.maxBytes | calc}}
+        <h4>{{dl.name}}</h4>
+        <span class="muted">{{dl.maxBytes | calc}} // {{ dl.endTime | fromNowDownload }}</span>
+        <span class="muted">From: {{dl.referrer}}</span>
+
         <div class="btn-group">
           <a class="btn" href="{{dl.referrer}}">Source</a>
           <a class="btn" href="#">Dropbox</a>

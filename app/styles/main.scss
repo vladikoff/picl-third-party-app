@@ -60,7 +60,7 @@ $piclGray: #747476;
   margin: 2%;
   #{headings()} {
     color: $piclGray;
-    padding: 1%;
+    padding: 0;
   }
   .muted {
     text-align: left;
@@ -70,10 +70,13 @@ $piclGray: #747476;
     border-bottom: 2px solid #f5f5f5;
     padding: 2% 0 5px 0;
   }
-
-  h3 {
+  h3, h4 {
     padding: 0;
     margin: 0;
+  }
+  h4 {
+    font-weight: normal;
+    color: #acacaf;
   }
   .search-query {
     @include border-radius(0);
@@ -127,7 +130,7 @@ $piclGray: #747476;
 }
 
 #content .contentList {
-  a, .contentItem {
+  ul > li > a, .contentItem {
     padding: 1% 0;
     border-bottom: 1px solid $grayLighter;
     display: block;

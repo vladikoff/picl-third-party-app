@@ -7,6 +7,7 @@
       <li class='contentItem contentItemSnippets' ng-repeat="s in device.snippets | filter:search | orderBy:'-visit'">
         {{s.name}}<br/>
         <span class="muted">{{s.visit | fromNow }}</span>
+        <span class="muted">From: {{s.location }}</span>
       </li>
     </ul>
   </li>

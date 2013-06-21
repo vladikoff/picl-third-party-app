@@ -65,7 +65,7 @@ angular.module('piclThirdPartyApp')
             console.log("Hello, " + userInfo.name + "!");
           });
         });
-        window.location.reload();
+        //window.location.reload();
       },
       /**
        * Logout from dropbox, forget tokens

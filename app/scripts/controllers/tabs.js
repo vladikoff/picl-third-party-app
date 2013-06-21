@@ -11,8 +11,10 @@ angular.module('piclThirdPartyApp')
 
   });
 
+
+
 angular.module('piclThirdPartyApp').
-  filter('fromNowDownload', function() {
+  filter('fromNow', function() {
     return function(dateString) {
       return moment(new Date(dateString)).fromNow()
     };
