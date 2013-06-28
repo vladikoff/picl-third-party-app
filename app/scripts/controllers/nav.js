@@ -29,13 +29,14 @@ angular.module('piclThirdPartyApp')
     };
 
 
+    /*
     var addGlass = function () {
       var creds = dropboxService.client().credentials();
       var tokens =  jQuery.param(creds);
       window.open('http://localhost:8500/connect?' + tokens);
     };
+    */
 
     $scope.login = login;
     $scope.logout = logout;
-    $scope.addGlass = addGlass;
   }]);

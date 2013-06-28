@@ -1,13 +1,21 @@
 <h2>Snippets</h2>
 <input type="text" ng-model="search" class="search-query" placeholder="Search">
-<ul class='contentList'>
+<ul class='contentList snippetList'>
   <li ng-repeat="device in devices">
     <h3>{{device.name | deviceName}}</h3>
     <ul>
       <li class='contentItem contentItemSnippets' ng-repeat="s in device.snippets | filter:search | orderBy:'-visit'">
-        {{s.name}}<br/>
+        <div ng-switch on="s.type">
+          <div ng-switch-when="text">
+            {{s.name}}<br/>
+          </div>
+          <div ng-switch-when="image">
+            <a href='{{s.name}}'><img src='{{s.name}}' /></a>
+          </div>
+        </div>
+
         <span class="muted">{{s.visit | fromNow }}</span>
-        <span class="muted">From: {{s.location }}</span>
+        <span class="muted"><a href="Source">{{s.location }}</a></span>
       </li>
     </ul>
   </li>
