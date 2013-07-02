@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piclThirdPartyApp')
-  .controller('NavCtrl', ['$scope', '$location', 'dropboxService', function ($scope, $location, dropboxService) {
+  .controller('NavCtrl', ['$scope', '$location', 'dropboxService', 'driveService', function ($scope, $location, dropboxService, driveService) {
     $scope.navClass = function (page) {
       var currentRoute = $location.path().substring(1) || '';
       return page === currentRoute ? 'active' : '';
@@ -28,6 +28,10 @@ angular.module('piclThirdPartyApp')
       dropboxService.logout();
     };
 
+    var loginDrive = function () {
+      driveService.login($scope);
+    };
+
 
     /*
     var addGlass = function () {
@@ -38,5 +42,6 @@ angular.module('piclThirdPartyApp')
     */
 
     $scope.login = login;
+    $scope.loginDrive = loginDrive;
     $scope.logout = logout;
   }]);

@@ -71,8 +71,10 @@ angular.module('piclThirdPartyApp')
        * Logout from dropbox, forget tokens
        */
       logout: function() {
-        $rootScope.client.signOff();
-        window.location.reload();
+        $rootScope.client.signOut(function() {
+
+          window.location.reload();
+        });
       },
       /**
        * Get data for a content type

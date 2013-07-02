@@ -35,7 +35,11 @@
               </ul>
             </div>
           </div>
-          <a href="#" ng-switch-when="false" ng-click="login()">Connect to Dropbox</a>
+          <span  ng-switch-when="false">
+            <a href="#" ng-click="login()">Connect to Dropbox</a> |
+            <a href="#" ng-click="loginDrive()">Connect to Drive</a>
+          </span>
+
         </li>
         <li class="next">
           <a class="btn btn-refresh pull-right" ng-click="refresh()"><span class="label label-info">Refresh</span></a>
