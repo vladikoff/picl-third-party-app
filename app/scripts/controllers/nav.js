@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('piclThirdPartyApp')
-  .controller('NavCtrl', ['$scope', '$location', 'dropboxService', 'driveService', function ($scope, $location, dropboxService, driveService) {
+  .controller('NavCtrl', ['$rootScope', '$scope', '$location', 'dropboxService', 'driveService', function ($rootScope, $scope, $location, dropboxService, driveService) {
     $scope.navClass = function (page) {
       var currentRoute = $location.path().substring(1) || '';
       return page === currentRoute ? 'active' : '';
     };
+
+    $rootScope.syncService = 'cake';
 
     $scope.loggedIn = false;
 
@@ -18,7 +20,15 @@ angular.module('piclThirdPartyApp')
     };
 
     // TODO: might not be the best place for this
-    dropboxService.connectService($scope);
+    dropboxService.connectService($scope, function(connected) {
+      if (!connected) {
+        driveService.connectService($scope);
+        // TODO: here
+        $rootScope.syncService = driveService;
+      } else {
+        $rootScope.syncService = dropboxService;
+      }
+    });
 
     var login = function () {
       dropboxService.login($scope);
@@ -31,15 +41,6 @@ angular.module('piclThirdPartyApp')
     var loginDrive = function () {
       driveService.login($scope);
     };
-
-
-    /*
-    var addGlass = function () {
-      var creds = dropboxService.client().credentials();
-      var tokens =  jQuery.param(creds);
-      window.open('http://localhost:8500/connect?' + tokens);
-    };
-    */
 
     $scope.login = login;
     $scope.loginDrive = loginDrive;

@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('piclThirdPartyApp')
-  .controller('TabsCtrl', function ($scope, dropboxService) {
+  .controller('TabsCtrl', function ($rootScope, $scope, dropboxService) {
     $scope.devices = [];
 
-    dropboxService.getData('tabs', function(data) {
+    $rootScope.syncService.getData('tabs', function(data) {
       $scope.devices = data;
       $scope.$apply();
     });
 
   });
-
-
 
 angular.module('piclThirdPartyApp').
   filter('fromNow', function() {

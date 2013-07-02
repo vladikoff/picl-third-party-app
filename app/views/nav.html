@@ -27,7 +27,7 @@
       <ul class="pager" id="pager-connect">
         <li class="previous" ng-switch on="loggedIn">
           <div class='pull-left' style='display: inline' ng-switch-when="true">
-            <a href="#"><span class="label label-info">Connected to Dropbox</span></a>
+            <a href="#"><span class="label label-info">Connected to {{loggedName}}</span></a>
             <div style='display: inline' class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="label label-info"> Options </span></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">

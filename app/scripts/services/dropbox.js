@@ -22,13 +22,16 @@ angular.module('piclThirdPartyApp')
        * Check if logged into dropbox without the auth flow
        * @param scope
        */
-      connectService: function(scope) {
+      connectService: function(scope, cb) {
         $rootScope.client.authenticate({interactive: false}, function() {
           console.log($rootScope.client.isAuthenticated());
           scope.loggedIn = $rootScope.client.isAuthenticated();
+          scope.loggedName = 'Dropbox';
           if (scope.loggedIn) {
             scope.$apply();
           }
+
+          if (cb) cb($rootScope.client.isAuthenticated());
         });
       },
       /**
