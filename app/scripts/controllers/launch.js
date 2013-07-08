@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * The list of most visited sites with their app icons
+ */
 angular.module('piclThirdPartyApp')
   .controller('LaunchCtrl', function ($scope, dropboxService) {
     $scope.devices = [];
@@ -10,8 +13,10 @@ angular.module('piclThirdPartyApp')
     });
   });
 
-
-
+/**
+ * Convert fav url to site link
+ * TODO: needs updating
+ */
 angular.module('piclThirdPartyApp').
   filter('urlToLink', function() {
     return function(urlString) {

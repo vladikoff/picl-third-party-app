@@ -7,8 +7,7 @@ angular.module('piclThirdPartyApp')
       return page === currentRoute ? 'active' : '';
     };
 
-    $rootScope.syncService = 'cake';
-
+    $rootScope.syncService = null;
     $scope.loggedIn = false;
 
     $scope.$watch("loggedIn", function(newValue, oldValue){
