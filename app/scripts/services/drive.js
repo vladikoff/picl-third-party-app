@@ -19,29 +19,49 @@ angular.module('piclThirdPartyApp')
 
     return {
       connectService: function (scope) {
-        gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, function (authResult) {
-          console.log('Drive:', console.log(authResult));
-          if (authResult) {
-            scope.loggedIn = true;
-            scope.loggedName = 'Drive';
-            if (scope.loggedIn) {
-              scope.$apply();
+        console.log(window.localStorage.stopLogin);
+        if (window.localStorage.stopLogin == "true") {
+          console.log('connect disabled');
+        } else {
+          console.log('window.localStorage.stopLogin');
+          console.log(window.localStorage.stopLogin);
+          gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, function (authResult) {
+            console.log('Drive:', console.log(authResult));
+            if (authResult) {
+              scope.loggedIn = true;
+              scope.loggedName = 'Drive';
+              $rootScope.loggedName = 'Drive';
+              if (scope.loggedIn) {
+                scope.$apply();
+              }
             }
-          }
 
-        });
+          });
+        }
+      },
+      getName: function() {
+        return $rootScope.loggedName;
       },
       client: function () {
       },
       connected: function () {
       },
-      login: function (scope) {
-        var _that = this;
-        gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false}, function (authResult) {
-        });
+      login: function (scope, force) {
+        console.log('login');
+          window.localStorage.stopLogin = "false";
+          gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false}, function (authResult) {
+            if (authResult) {
+              scope.loggedIn = true;
+              scope.loggedName = 'Drive';
+              if (scope.loggedIn) {
+                scope.$apply();
+              }
+            }
+          });
       },
       logout: function () {
-
+        window.localStorage.stopLogin = "true";
+        window.location.reload();
       },
 
       getData: function (type, callback) {
@@ -50,30 +70,33 @@ angular.module('piclThirdPartyApp')
           q: "title = '" + file + "' and " + "trashed = false",
           maxResults: 1
         };
+        if (window.localStorage.stopLogin) {
 
-        gapi.client.load('drive', 'v2', function () {
-          gapi.client.drive.files.list(findQuery).execute(function (response) {
-            var fileUrl = null;
-            try {
-              fileUrl = response.items[0].downloadUrl;
-            } catch (e) {
-              console.log('File not found...');
-            }
-            if (fileUrl) {
-              $.ajax({
-                url: fileUrl,
-                beforeSend: function (xhr) {
-                  xhr.setRequestHeader('Authorization', 'OAuth ' + gapi.auth.getToken().access_token);
-                },
-                success: function (data) {
-                  console.log(data);
-                  callback(data);
-                }
-              });
-            }
+        }  else {
+          gapi.client.load('drive', 'v2', function () {
+            gapi.client.drive.files.list(findQuery).execute(function (response) {
+              var fileUrl = null;
+              try {
+                fileUrl = response.items[0].downloadUrl;
+              } catch (e) {
+                console.log('File not found...');
+              }
+              if (fileUrl) {
+                $.ajax({
+                  url: fileUrl,
+                  beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'OAuth ' + gapi.auth.getToken().access_token);
+                  },
+                  success: function (data) {
+                    console.log(data);
+                    callback(data);
+                  }
+                });
+              }
 
+            });
           });
-        });
+        }
       }
     };
   });

@@ -34,4 +34,3 @@ angular.module('piclThirdPartyApp')
       return moment(new Date(input / 1000)).fromNow()
     };
   });
-

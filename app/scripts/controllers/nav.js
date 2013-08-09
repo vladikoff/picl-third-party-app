@@ -34,11 +34,15 @@ angular.module('piclThirdPartyApp')
     };
 
     var logout = function () {
-      dropboxService.logout();
+      if ($rootScope.syncService.getName() === "Dropbox") {
+        dropboxService.logout();
+      } else {
+        driveService.logout();
+      }
     };
 
     var loginDrive = function () {
-      driveService.login($scope);
+      driveService.login($scope, true);
     };
 
     $scope.login = login;

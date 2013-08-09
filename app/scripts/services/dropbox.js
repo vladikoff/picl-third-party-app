@@ -27,12 +27,16 @@ angular.module('piclThirdPartyApp')
           console.log($rootScope.client.isAuthenticated());
           scope.loggedIn = $rootScope.client.isAuthenticated();
           scope.loggedName = 'Dropbox';
+          $rootScope.loggedName = 'Dropbox';
           if (scope.loggedIn) {
             scope.$apply();
           }
 
           if (cb) cb($rootScope.client.isAuthenticated());
         });
+      },
+      getName: function() {
+        return $rootScope.loggedName;
       },
       /**
        * Get the dropbox client
